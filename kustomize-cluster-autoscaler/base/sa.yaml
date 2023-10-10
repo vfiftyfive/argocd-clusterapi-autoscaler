@@ -3,9 +3,3 @@ kind: ServiceAccount
 metadata:
   name: cluster-autoscaler
   namespace: kube-system
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: job-service-account
-  namespace: default
