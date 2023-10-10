@@ -1,0 +1,10 @@
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: GCPMachineTemplate
+metadata:
+  name: {{ .Values.clusterName}}-md-0
+  namespace: {{ .Values.clusterNamespace | default "default" }}
+spec:
+  template:
+    spec:
+      image: projects/{{ .Values.gcpProject }}/global/images/{{ .Values.gcpImage }}
+      instanceType: {{ .Values.gcpWorkerInstanceType }}

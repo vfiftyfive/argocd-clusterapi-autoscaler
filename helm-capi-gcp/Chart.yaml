@@ -1,0 +1,11 @@
+apiVersion: v2
+name: capi-gcp
+description: Deploy Kubernetes clusters with Cluster API in GCP
+version: 0.1.0
+home: https://cluster-api.sigs.k8s.io/ 
+sources:
+- https://cluster-api.sigs.k8s.io/
+maintainers:
+  - name: Nic Vermande
+    email: nic@spectrocloud.com
+

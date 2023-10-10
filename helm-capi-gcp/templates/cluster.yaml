@@ -1,0 +1,26 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: {{ .Values.clusterName }}
+  namespace: {{ .Values.clusterNamespace | default "default"}}
+  {{- if .Values.addons }}
+  labels:
+    {{- range $key, $value := .Values.addons }}
+    {{ $key }}: {{ $value }}
+    {{- end }}
+  {{- end }}
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+      - 192.168.0.0/16
+  controlPlaneRef:
+    apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+    kind: KubeadmControlPlane
+    name: {{ .Values.clusterName }}-control-plane
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+    kind: GCPCluster
+    name: {{ .Values.clusterName }}
+
+

@@ -1,0 +1,32 @@
+apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+kind: KubeadmControlPlane
+metadata:
+  name: {{ .Values.clusterName }}-control-plane
+  namespace: {{ .Values.clusterNamespace | default "default"}}
+spec:
+  kubeadmConfigSpec:
+    clusterConfiguration:
+      apiServer:
+        extraArgs:
+          cloud-provider: gce
+      controllerManager:
+        extraArgs:
+          allocate-node-cidrs: "false"
+          cloud-provider: gce
+    initConfiguration:
+      nodeRegistration:
+        kubeletExtraArgs:
+          cloud-provider: gce
+        name: {{`'{{ ds.meta_data.local_hostname.split(".")[0] }}'`}}
+    joinConfiguration:
+      nodeRegistration:
+        kubeletExtraArgs:
+          cloud-provider: gce
+        name: {{`'{{ ds.meta_data.local_hostname.split(".")[0] }}'`}}
+  machineTemplate:
+    infrastructureRef:
+      apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+      kind: GCPMachineTemplate
+      name: {{ .Values.clusterName }}-control-plane
+  replicas: {{ .Values.controlPlaneReplicas }}
+  version: v{{ .Values.kubernetesVersion}}

@@ -1,0 +1,1 @@
+GitOps configuration for CAPI/CAPG/Cluster Autoscaler

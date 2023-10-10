@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: dev-cluster-autoscaler
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+    namespace: default
+  project: default
+  source:
+    path: kustomize-cluster-autoscaler/overlays/prod
+    repoURL: https://github.com/vfiftyfive/capi-clusters.git
+    targetRevision: HEAD

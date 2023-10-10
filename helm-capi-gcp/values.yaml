@@ -1,0 +1,15 @@
+clusterName: capi-prod
+clusterNamespace: kube-system
+gcpProject: ${GCP_PROJECT}
+gcpRegion: ${GCP_REGION}
+gcpControlPlaneInstanceType: e2-standard-2
+gcpWorkerInstanceType: e2-standard-2
+gcpImage: cluster-api-ubuntu-2004-v1-26-3-1679528631
+controlPlaneReplicas: 1
+workerReplicas: 1
+maxWorkerReplicas: 10
+kubernetesVersion: 1.26.3
+addons:
+  nginxIngressChart: enabled
+  calicoCNIChart: enabled
+

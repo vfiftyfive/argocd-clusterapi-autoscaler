@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-autoscaler
+spec:
+  selector:
+      matchLabels:
+        app: cluster-autoscaler
+  template:
+    spec:
+      containers:
+        - name: cluster-autoscaler
+          args:
+          - --kubeconfig=/mnt/${CLUSTER_NAME}.kubeconfig
+          - --clusterapi-cloud-config-authoritative
+          - --cloud-provider=clusterapi
+          - --node-group-auto-discovery=clusterapi:clusterName=${CLUSTER_NAME}
