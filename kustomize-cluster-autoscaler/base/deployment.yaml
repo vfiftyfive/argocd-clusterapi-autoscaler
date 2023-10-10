@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-autoscaler
+  namespace: kube-system
+  labels:
+    app: cluster-autoscaler
+spec:
+  selector:
+    matchLabels:
+      app: cluster-autoscaler
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cluster-autoscaler
+    spec:
+      containers:
+      - image: us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.26.1
+        name: cluster-autoscaler
+        command:
+        - /cluster-autoscaler
+        args:
+        - --kubeconfig=/mnt/capi-nic.kubeconfig
+        - --clusterapi-cloud-config-authoritative
+        - --cloud-provider=clusterapi
+        - --node-group-auto-discovery=clusterapi:clusterName=capi-nic
+        volumeMounts:
+        - name: kubeconfig-vol
+          mountPath: /mnt
+      serviceAccountName: cluster-autoscaler
+      terminationGracePeriodSeconds: 10
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master

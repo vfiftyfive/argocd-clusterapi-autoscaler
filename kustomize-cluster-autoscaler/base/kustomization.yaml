@@ -3,10 +3,12 @@ kind: Kustomization
 
 # List of resource files to include
 resources:
-  - crb-mgmt.yaml
-  - crb-workload.yaml
-  - cr-mgmt.yaml
-  - cr-workload.yaml
-  - deployment.yaml
-  - sa.yaml
-
+- cr-job.yaml
+- job-kubeconfig.yaml
+- crb-job.yaml
+- crb-mgmt.yaml
+- crb-workload.yaml
+- cr-mgmt.yaml
+- cr-workload.yaml
+- deployment.yaml
+- sa.yaml
