@@ -3,13 +3,12 @@ kind: Deployment
 metadata:
   name: cluster-autoscaler
   namespace: kube-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   selector:
       matchLabels:
         app: cluster-autoscaler
-      metadata:
-        annotations:
-        argocd.argoproj.io/sync-wave: "1"
   template:
     spec:
       containers:
