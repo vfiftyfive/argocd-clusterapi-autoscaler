@@ -1,12 +1,11 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: job-role-binding
-  namespace: kube-system
 subjects:
 - kind: ServiceAccount
   name: job-service-account
-  namespace: kube-system
+  namespace: default
 roleRef:
   kind: ClusterRole
   name: job-cluster-role

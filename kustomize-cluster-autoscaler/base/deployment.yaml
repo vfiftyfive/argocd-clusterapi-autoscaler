@@ -21,10 +21,10 @@ spec:
         command:
         - /cluster-autoscaler
         args:
-        - --kubeconfig=/mnt/capi-nic.kubeconfig
+        - --kubeconfig=/mnt/mycluster.kubeconfig
         - --clusterapi-cloud-config-authoritative
         - --cloud-provider=clusterapi
-        - --node-group-auto-discovery=clusterapi:clusterName=capi-nic
+        - --node-group-auto-discovery=clusterapi:clusterName=mycluster
         volumeMounts:
         - name: kubeconfig-vol
           mountPath: /mnt

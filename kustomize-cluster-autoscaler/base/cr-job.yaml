@@ -4,5 +4,5 @@ metadata:
   name: job-cluster-role
 rules:
 - apiGroups: [""]
-  resources: ["secrets"]
-  verbs: ["get", "list"]
+  resources: ["secrets", "configmaps"]
+  verbs: ["get", "list", "create"]

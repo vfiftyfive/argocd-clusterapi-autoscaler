@@ -12,3 +12,4 @@ images:
 
 patches:
 - path: deployment-patch.yaml
+- path: job-patch.yaml

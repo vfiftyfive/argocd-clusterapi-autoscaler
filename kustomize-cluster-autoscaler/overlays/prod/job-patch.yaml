@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fetch-kubeconfig
+spec:
+  template:
+    spec:
+      containers:
+      - name: fetch-kubeconfig
+        env:
+        - name: CLUSTER_NAME
+          value: capi-prod

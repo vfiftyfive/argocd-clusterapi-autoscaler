@@ -1,5 +1,5 @@
 clusterName: capi-prod
-clusterNamespace: kube-system
+clusterNamespace: default
 gcpProject: ${GCP_PROJECT}
 gcpRegion: ${GCP_REGION}
 gcpControlPlaneInstanceType: e2-standard-2

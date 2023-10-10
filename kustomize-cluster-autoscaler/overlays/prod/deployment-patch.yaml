@@ -16,3 +16,9 @@ spec:
           - --clusterapi-cloud-config-authoritative
           - --cloud-provider=clusterapi
           - --node-group-auto-discovery=clusterapi:clusterName=capi-prod
+      volumes:
+      - name: kubeconfig-vol
+        configMap:
+          name: capi-prod-kubeconfig
+
+  
