@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
 - cr-job.yaml
 - job-kubeconfig.yaml
+- job-sa.yaml
 - crb-job.yaml
 - crb-mgmt.yaml
 - crb-workload.yaml
