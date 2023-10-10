@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cluster-autoscaler
+  namespace: kube-system
 spec:
   selector:
       matchLabels:
@@ -11,7 +12,7 @@ spec:
       containers:
         - name: cluster-autoscaler
           args:
-          - --kubeconfig=/mnt/${CLUSTER_NAME}.kubeconfig
+          - --kubeconfig=/mnt/capi-prod.kubeconfig
           - --clusterapi-cloud-config-authoritative
           - --cloud-provider=clusterapi
-          - --node-group-auto-discovery=clusterapi:clusterName=${CLUSTER_NAME}
+          - --node-group-auto-discovery=clusterapi:clusterName=capi-prod
