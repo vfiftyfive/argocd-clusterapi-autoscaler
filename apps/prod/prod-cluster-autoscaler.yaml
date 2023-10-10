@@ -3,7 +3,7 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: dev-cluster-autoscaler
+  name: prod-cluster-autoscaler
   namespace: argocd
 spec:
   destination:
