@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: helm-capi-gcp
-    repoURL: https://github.com/vfiftyfive/capi-clusters.git
+    repoURL: https://github.com/vfiftyfive/argocd-clusterapi-autoscaler.git
     helm:
       valueFiles:
       - values.yaml

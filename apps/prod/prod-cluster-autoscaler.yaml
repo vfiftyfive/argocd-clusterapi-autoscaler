@@ -12,5 +12,5 @@ spec:
   project: default
   source:
     path: kustomize-cluster-autoscaler/overlays/prod
-    repoURL: https://github.com/vfiftyfive/capi-clusters.git
+    repoURL: https://github.com/vfiftyfive/argocd-clusterapi-autoscaler.git
     targetRevision: HEAD
