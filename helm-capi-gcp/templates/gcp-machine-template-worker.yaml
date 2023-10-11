@@ -6,5 +6,5 @@ metadata:
 spec:
   template:
     spec:
-      image: projects/{{ .Values.gcpProject }}/global/images/{{ .Values.gcpImage }}
+      image: projects/{{ .Values.gcpImageProject }}/global/images/{{ .Values.gcpImage }}
       instanceType: {{ .Values.gcpWorkerInstanceType }}

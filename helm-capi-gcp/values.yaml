@@ -4,6 +4,7 @@ gcpProject: nic-dev-356208
 gcpRegion: us-central1
 gcpControlPlaneInstanceType: e2-standard-2
 gcpWorkerInstanceType: e2-standard-2
+gcpImageProject: nic-dev-356208
 gcpImage: cluster-api-ubuntu-2004-v1-26-3-1679528631
 controlPlaneReplicas: 1
 workerReplicas: 1
