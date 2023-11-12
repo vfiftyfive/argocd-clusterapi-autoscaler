@@ -5,16 +5,12 @@ metadata:
 rules:
   - apiGroups:
     - cluster.x-k8s.io
-    - cluster.x-k8s.io/v1beta1
-    - infrastructure.cluster.x-k8s.io/v1beta1
-    - infrastructure.cluster.x-k8s.io
     resources:
     - machinedeployments
     - machinedeployments/scale
     - machines
     - machinesets
     - machinepools
-    - gcpmachinetemplates
     verbs:
     - get
     - list
