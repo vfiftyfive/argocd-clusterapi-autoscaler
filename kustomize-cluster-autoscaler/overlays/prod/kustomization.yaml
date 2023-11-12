@@ -4,12 +4,6 @@ kind: Kustomization
 resources:
 - ../../base
 
-# Image substitution
-images:
-- name: us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler
-  newName: registry.k8s.io/autoscaling/cluster-autoscaler
-  newTag: v1.28.0
-
 patches:
 - path: deployment-patch.yaml
 - path: job-patch.yaml
