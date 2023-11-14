@@ -28,7 +28,7 @@ spec:
         volumeMounts:
         - name: kubeconfig-vol
           mountPath: /mnt
-      serviceAccountName: cluster-autoscaler
+      # serviceAccountName: cluster-autoscaler
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule
